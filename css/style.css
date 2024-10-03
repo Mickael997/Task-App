@@ -97,3 +97,48 @@ ul li{
     cursor: pointer;
     position: relative;
 }
+
+/* * 02/10/2024 */
+/* ^ Pseudo-elemento before
+^ Ele "cria" um elemento antes do LI
+^ Isso quer dizer que as propriedades internas são
+^ neste elemento/tag criado via CSS */
+ul li::before{
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    background-image: url('../img/desmarcado.png');
+    background-size: cover;
+    background-position: center;
+    top: 12px;
+    left: 8px;
+    transition: all 0.4s;
+}
+/* * O item da lista MARCADA
+^ Esta classe checked será adiciona via Javascript.
+^ Quando a pessoa clicar para marcar como tarefa concluída*/
+ul li.checked{
+    color: #555;
+    text-decoration: line-through;
+}
+/* ^ Pseudoelemento Antes da tarefa que ESTÁ MARCADA */
+ul li.checked::before{
+    background-image: url('../img/marcado.png');
+}
+/* * O span dentro do li será adicionado via JAVASCRIPT  */
+ul li span{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+ul li span:hover{
+    background-color: #edeef0;
+}
